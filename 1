@@ -98,7 +98,7 @@ twitch-videoad.js text/javascript
                         if (adBlockDiv == null) {
                             adBlockDiv = getAdBlockDiv();
                         }
-                        adBlockDiv.P.textContent = 'Blocking ads 1';
+                        adBlockDiv.P.textContent = '屏蔽广告';
                         adBlockDiv.style.display = 'block';
                     } else if (e.data.key == 'HideAdBlockBanner') {
                         if (adBlockDiv == null) {
@@ -381,7 +381,7 @@ twitch-videoad.js text/javascript
         var qualityOverride = null;
         if (streamInfo.EncodingsM3U8Cache[playerType].Resolution != resolutionInfo.Resolution ||
             streamInfo.EncodingsM3U8Cache[playerType].RequestTime < Date.now() - EncodingCacheTimeout) {
-            console.log(`Blocking ads 2 (type:${playerType}, resolution:${resolutionInfo.Resolution}, frameRate:${resolutionInfo.FrameRate}, qualityOverride:${qualityOverride})`);
+            console.log(`Blocking ads (type:${playerType}, resolution:${resolutionInfo.Resolution}, frameRate:${resolutionInfo.FrameRate}, qualityOverride:${qualityOverride})`);
         }
         streamInfo.EncodingsM3U8Cache[playerType].RequestTime = Date.now();
         streamInfo.EncodingsM3U8Cache[playerType].Value = encodingsM3u8;
@@ -504,7 +504,7 @@ twitch-videoad.js text/javascript
             }
         } else {
             if (WasShowingAd) {
-                console.log('Finished Blocking ads 3');
+                console.log('Finished blocking ads');
                 WasShowingAd = false;
                 //Here we put player back to original quality and remove the blocking message.
                 postMessage({
